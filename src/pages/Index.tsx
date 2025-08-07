@@ -5,15 +5,22 @@ import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const techStack = [
-    { name: 'React', icon: 'Component', color: 'bg-blue-500' },
-    { name: 'TypeScript', icon: 'FileText', color: 'bg-blue-600' },
-    { name: 'JavaScript', icon: 'Zap', color: 'bg-yellow-500' },
+  const frontendStack = [
     { name: 'HTML5', icon: 'Code', color: 'bg-orange-500' },
     { name: 'CSS3', icon: 'Palette', color: 'bg-blue-400' },
-    { name: 'Node.JS', icon: 'Server', color: 'bg-green-600' },
+    { name: 'JavaScript (ES6+)', icon: 'Zap', color: 'bg-yellow-500' },
+    { name: 'React', icon: 'Component', color: 'bg-blue-500' },
+    { name: 'TypeScript', icon: 'FileText', color: 'bg-blue-600' },
     { name: 'Redux', icon: 'Database', color: 'bg-purple-600' },
     { name: 'Zustand', icon: 'Box', color: 'bg-orange-600' }
+  ];
+
+  const backendStack = [
+    { name: 'Node.JS', icon: 'Server', color: 'bg-green-600' }
+  ];
+
+  const otherStack = [
+    { name: 'Telegram Bot API', icon: 'Bot', color: 'bg-blue-500' }
   ];
 
   const services = [
@@ -77,15 +84,13 @@ const Index = () => {
         
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 gradient-text">
-              &lt;Devlyst /&gt;
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              Привет! Я — <span className="gradient-text">&lt;Devlyst /&gt;</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-4">
-              fullstack-разработчик с фокусом на чистый код
-            </p>
-            <p className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Специализируюсь на создании интуитивных и быстрых веб-интерфейсов, 
-              а также могу реализовать лёгкий бекенд. Работаю быстро, ответственно и с душой.
+            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              fullstack-разработчик с фокусом на <span className="font-semibold text-gray-800">чистый код</span> и современные технологии. 
+              Специализируюсь на создании интуитивных и быстрых веб-интерфейсов, а также могу реализовать лёгкий бекенд. 
+              <span className="text-primary font-medium">Работаю быстро, ответственно и с душой.</span>
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -130,35 +135,56 @@ const Index = () => {
 
           {/* Frontend Skills */}
           <div className="mb-12">
-            <h3 className="text-2xl font-semibold mb-6 text-center">Frontend</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {techStack.slice(0, 5).map((tech, index) => (
+            <h3 className="text-2xl font-semibold mb-6 text-center text-primary">Frontend:</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+              {frontendStack.map((tech, index) => (
                 <Card key={tech.name} className="card-hover cursor-pointer group">
-                  <CardContent className="p-6 text-center">
-                    <div className={`w-16 h-16 ${tech.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
-                      <Icon name={tech.icon as any} size={24} className="text-white" />
+                  <CardContent className="p-4 text-center">
+                    <div className={`w-12 h-12 ${tech.color} rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform`}>
+                      <Icon name={tech.icon as any} size={20} className="text-white" />
                     </div>
-                    <h4 className="font-semibold text-gray-800">{tech.name}</h4>
+                    <h4 className="font-semibold text-xs text-gray-800">{tech.name}</h4>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
 
-          {/* Backend & Other Skills */}
+          {/* Backend Skills */}
           <div className="mb-12">
-            <h3 className="text-2xl font-semibold mb-6 text-center">Backend & Другое</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {techStack.slice(5).map((tech, index) => (
-                <Card key={tech.name} className="card-hover cursor-pointer group">
-                  <CardContent className="p-6 text-center">
-                    <div className={`w-16 h-16 ${tech.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
-                      <Icon name={tech.icon as any} size={24} className="text-white" />
-                    </div>
-                    <h4 className="font-semibold text-gray-800">{tech.name}</h4>
-                  </CardContent>
-                </Card>
-              ))}
+            <h3 className="text-2xl font-semibold mb-6 text-center text-secondary">Backend:</h3>
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 gap-4">
+                {backendStack.map((tech, index) => (
+                  <Card key={tech.name} className="card-hover cursor-pointer group">
+                    <CardContent className="p-6 text-center">
+                      <div className={`w-16 h-16 ${tech.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
+                        <Icon name={tech.icon as any} size={24} className="text-white" />
+                      </div>
+                      <h4 className="font-semibold text-gray-800">{tech.name}</h4>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Other Skills */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold mb-6 text-center text-primary">Другое:</h3>
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 gap-4">
+                {otherStack.map((tech, index) => (
+                  <Card key={tech.name} className="card-hover cursor-pointer group">
+                    <CardContent className="p-6 text-center">
+                      <div className={`w-16 h-16 ${tech.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
+                        <Icon name={tech.icon as any} size={24} className="text-white" />
+                      </div>
+                      <h4 className="font-semibold text-gray-800">{tech.name}</h4>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
 
